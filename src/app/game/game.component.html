@@ -1,0 +1,45 @@
+<div id="game-container">
+    <h1>CLICKFACTORY</h1>
+    <div id="inventory">
+        <h2>Inventory</h2>
+        <div *ngFor="let slot of slots" class="inventory-slot">
+            <p *ngIf="slot.material">{{ slot.material.name }}: {{ slot.quantity }}/{{ slot.material.stackSize }}</p>
+            <p *ngIf="!slot.material">Empty</p>
+        </div>
+    </div>
+
+    <div id="actions">
+        <h2>Actions</h2>
+        <!-- Initial State things -->
+        <button *ngIf="isTechnologyUnlocked('Drop Pod') && hasWorldItem('HUB Parts')" (click)="pickUp('HUB Parts')">Pick Up Drop Pod</button>
+
+        <div *ngFor="let building of availableBuildings">
+            <button (click)="build(building.name)">Build {{ building.name }}</button>
+        </div>
+    </div>
+
+    <div id="buildings">
+        <h2>Buildings</h2>
+        <div *ngFor="let building of buildings">
+            <p *ngIf="building.built > 0">{{ building.name }}: {{ building.built }}</p>
+        </div>
+    </div>
+
+    <!-- <button *ngIf="hasItem('HUB Parts')" (click)="build('Hub')">Build Hub</button> -->
+    <!-- <button (click)="mine('Iron')">Mine Iron</button>
+    <button *ngIf="isTechnologyUnlocked('Copper Mining')" (click)="mine('Copper')">Mine Copper</button>
+    <br />
+    -->
+    <div id="technologies">
+        <h2>Technologies</h2>
+        <div *ngFor="let tech of technologies">
+            <div  *ngIf="isTechnologyVisible(tech.name)">
+                <p>{{ tech.name }}: {{ tech.description }}</p>
+                <button *ngIf="!tech.unlocked" (click)="unlockTechnology(tech.name)">Unlock</button>
+            </div>
+        </div>
+    </div>
+    <button (click)="saveGame()">Save</button>
+    <button (click)="loadGame()">Load</button>
+    <button (click)="clearGame()">Reset</button>
+</div>

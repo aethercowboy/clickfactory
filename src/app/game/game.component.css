@@ -1,0 +1,30 @@
+#game-container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #cccccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#inventory {
+    margin-top: 20px;
+}
+
+.inventory-slot {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    margin-bottom: 5px;
+    background-color: #f9f9f9;
+}
+
+#technologies {
+    margin-top: 20px;
+}
